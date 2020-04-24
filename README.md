@@ -1,5 +1,7 @@
 # IoT Agriculture Project
 
+![](https://specials-images.forbesimg.com/imageserve/5ea0bf898c2caa0006e718e2/960x0.jpg?fit=scale)
+
 ## Introduction
 This project is a prototype for an agriculture environment data sensing system.
 The prototype has an ETL pipeline that reads data from the sensor and loads this into an initial data file using Python. We then apply Data Modelling through the use of the pandas library to create a predictive model as to anticipate the temperature state in an hour.
