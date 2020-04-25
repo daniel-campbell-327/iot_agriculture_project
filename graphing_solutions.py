@@ -10,7 +10,7 @@ def create_graph():
         next(data_reader)
         count = 0
         for row in data_reader:
-            if count < 101:
+            if count < 96:
                 data_dict.update({datetime.strptime(row[1],
                                                     '%Y-%m-%d %H:%M:%S.%f')
                                   : float(row[2])})

@@ -19,6 +19,3 @@ while True:
         transform()
         send_email(False)
     sleep(900)
-
-
-

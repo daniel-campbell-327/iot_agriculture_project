@@ -19,4 +19,3 @@ def get_next_state(curr_state):
     max_pred_value = max_adf.iloc[0]['probability']
     adf = adf.loc[adf['probability'] == max_pred_value]
     return adf.iloc[0]['next_state']
-

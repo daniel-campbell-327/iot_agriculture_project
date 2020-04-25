@@ -9,4 +9,5 @@ def markov_chain():
     given_state = data_from_transform[-1][1]
 
     for i in range(0, 4):
-        return gns(int(given_state))
+        given_state = gns(int(given_state))
+    return given_state

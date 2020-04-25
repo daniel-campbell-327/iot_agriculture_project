@@ -3,7 +3,7 @@ import csv
 from sensor_data import sensor_data
 
 
-def write_to_file():
+def write_to_file() -> None:
     humidity_data, temperature_data = sensor_data()
     if temperature_data < 0:
         temp_state = 1

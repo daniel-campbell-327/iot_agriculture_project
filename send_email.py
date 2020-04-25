@@ -1,6 +1,7 @@
 import csv
 import smtplib
 import ssl
+import credentials
 from markov_chain import markov_chain as mc
 from email import encoders
 from email.mime.base import MIMEBase
@@ -8,7 +9,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 
-def send_email(contain_graph):
+def send_email(contain_graph: bool) -> None:
     with open('data.txt', mode='r') as data_file:
         data_reader = csv.reader(data_file, delimiter=',')
         data_from_csv = [row for row in data_reader]
@@ -27,7 +28,7 @@ def send_email(contain_graph):
         plant_state = 'extremely hot'
     acc_context = ssl.create_default_context()
     smtp_server = 'smtp.gmail.com'
-    msg_from = 'danielcampbelltest@gmail.com'
+    msg_from = credentials.login['username']
     msg_subject = 'Plant Temperature Status'
     msg_body = (f'The current temperature of the plant is {temp}'
                         f' and the current humidity is {humidity}. '
@@ -56,5 +57,6 @@ def send_email(contain_graph):
     text = message.as_string()
 
     with smtplib.SMTP_SSL(smtp_server, context=acc_context) as server:
-        server.login(msg_from, 'testtest1!')
+        server.login(credentials.login['username'],
+                     credentials.login['password'])
         server.sendmail(msg_from, msg_from, text)
